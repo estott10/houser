@@ -1,14 +1,16 @@
 const express= require('express'),
-    bodyParser= require('body-parser');
+    bodyParser= require('body-parser'),
+    massive = require('massive'),
+    cors = require('cors');
 
 require('dotenv').config();
 const app= express();
-app.use(bodyParser.json);
+app.use(bodyParser.json());
+app.use(cors());
 
-const massive = require('massive');
-
-
-const secret = process.env.SECRET_KEY;
+massive(process.env.CONNECTION_STRING).then( dbInstance =>{
+    app.set('db', dbInstance)
+} ).catch( err => console.log(err) );
 
 const port= process.env.PORT;
 
