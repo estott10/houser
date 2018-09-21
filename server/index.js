@@ -18,7 +18,9 @@ const port= process.env.PORT;
 
 app.get('/api/houses', controller.getHouses);
 
-app.post('/api/wizard', controller.addHouse)
+app.post('/api/wizard', controller.addHouse);
+
+app.delete('/api/house/:id', controller.removeHouse);
 
 app.listen( port, () => {
     console.log(`Server listening on port ${port}`)

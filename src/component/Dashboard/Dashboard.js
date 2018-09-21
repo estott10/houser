@@ -28,7 +28,7 @@ this.componentDidMount= this.componentDidMount.bind(this);
             <div>
                 Dashboard
                 {houses.map( (house, i) => {
-                    return <ul key={i} className= "houseList"><House propertyName={house.propertyName} address={house.address} city={house.city} homeState={house.state} zip={house.zip}/></ul>
+                    return <ul key={i} className= "houseList"><House propertyname={house.propertyname} address={house.address} city={house.city} homeState={house.state} zip={house.zip}/></ul>
                 })}
                 
             </div>

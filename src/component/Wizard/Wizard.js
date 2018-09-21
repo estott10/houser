@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import Dashboard from '../Dashboard/Dashboard';
 
 export default class Wizard extends Component {
    
@@ -7,13 +9,14 @@ export default class Wizard extends Component {
        super()
 
        this.state = {
-           propertyName: '',
+           propertyname: '',
            address: '',
            city: '',
            state: '',
            zip: ''
        }
        this.handleChange=this.handleChange.bind(this);
+       this.addhouse= this.addhouse.bind(this);
    }
 handleChange(e){
     this.setState({
@@ -21,6 +24,20 @@ handleChange(e){
     })
 }
 
+addhouse(){
+    const newHouse = {
+        propertyname: this.state.propertyname,
+        address: this.state.address,
+        city: this.state.city,
+        state: this.state.state,
+        zip: parseInt(this.state.zip, 10)
+    }
+    axios.post('/api/wizard', newHouse)
+        .then(result => {
+            this.props.history.push('/')
+        })
+
+}
 
     render() {
 
@@ -31,7 +48,7 @@ handleChange(e){
                     <Link to='/' >Cancel</Link>
                     </button>
                     Property Name
-                <input name='propertyName' value= {this.state.propertyName} onChange={this.handleChange} ></input>
+                <input name='propertyname' value= {this.state.propertyname} onChange={this.handleChange} ></input>
                 Address
                 <input name='address' value= {this.state.address} onChange={this.handleChange} ></input>
                 City
@@ -40,6 +57,7 @@ handleChange(e){
                 <input name='state' value= {this.state.state} onChange={this.handleChange} ></input>
                 Zip
                 <input name='zip' value= {this.state.zip} onChange={this.handleChange} ></input>
+                <button onClick={()=>{this.addhouse()}}>Complete</button>
         </div>
         )
     }

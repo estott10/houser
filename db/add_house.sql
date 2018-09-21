@@ -1,1 +1,1 @@
-INSERT INTO Houses ( propertyImage, propertyName, address, city, state, zip) VALUES ($1, $2, $3, $4, $5, $6)
+INSERT INTO Houses (propertyname, address, city, state, zip) VALUES ($1, $2, $3, $4, $5)
