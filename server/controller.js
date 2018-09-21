@@ -28,8 +28,21 @@ module.exports = {
                 res.status(500).send({errorMessage: "Failed to add house"})
                 console.log(err);
             })
+    },
 
-    }
+    removeHouse: (req, res, next) => {
+        const dbInstance = req.app.get('db')
+        const { id } = req.params;
+
+        dbInstance.remove_house(id)
+            .then(result => {
+                res.sendStatus(200);
+            })
+            .catch(err => {
+                res.status(500).send({errorMessage: "Failed to delete house"})
+                console.log(err);
+            })
+    } 
 }
 
     // delete:
