@@ -10,7 +10,7 @@ class App extends Component {
       <div className="App">
       <Header/>
       <button>
-        <Link to='/wizard'>
+        <Link to='/wizard/step1'>
         Add New Property
         </Link>
         </button>
