@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { updateMortgage, updateRent, cancelWizard } from '../../ducks/reducer';
 
-export default class WizardThree extends Component {
+class WizardThree extends Component {
 
     constructor() {
         super();
@@ -11,30 +13,32 @@ export default class WizardThree extends Component {
                 propertyname: '',
                 address: '',
                 city: '',
-                state: '',
+                homestate: '',
                 zip: '',
                 mortgage: '',
                 rent: '',
-                image: ''
+                propertyimage: ''
         }
         this.addhouse= this.addhouse.bind(this);
         this.handleChange=this.handleChange.bind(this);
+        // this.componentDidMount=this.componentDidMount.bind(this);
     }
 
-    addhouse(){
+    addhouse(state){
         const newHouse = {
-            propertyname: this.state.propertyname,
-            address: this.state.address,
-            city: this.state.city,
-            state: this.state.state,
-            zip: parseInt(this.state.zip, 10),
+            propertyname: state.propertyname,
+            address: state.address,
+            city: state.city,
+            homestate: state.homestate,
+            zip: parseInt(state.zip, 10),
             mortgage: this.state.mortgage,
             rent: this.state.rent,
-            image: this.state.image
+            propertyimage: state.propertyimage
         }
         axios.post('/api/wizard', newHouse)
             .then(result => {
                 this.props.history.push('/')
+                cancelWizard();
             })
     
     }
@@ -44,17 +48,60 @@ export default class WizardThree extends Component {
         })
     }
 
+    // componentDidMount(){
+    //    const { state }= this.props;
+    //     this.setState({
+    //         propertyname: state.propertyname,
+    //         address: state.address,
+    //         city: state.city,
+    //         homestate: state.homestate,
+    //         zip: state.zip,
+    //         propertyimage: state.propertyimage,
+    //         mortgage: state.mortgage,
+    //         rent: state.rent 
+    //     });
+    // }
+
     render() {
+        const { updateMortgage, updateRent } = this.props;
         return (
             <div>
                 Monthly Mortgage
                 <input name='mortgage' value={this.state.mortgage} onChange={this.handleChange}></input>
                 Desired Rent
                 <input name='rent' value={this.state.rent} onChange={this.handleChange}></input>
-                <button>
-                    <Link to='/'>Next</Link>
+                <button onClick={() => {
+                    updateMortgage();
+                    updateRent();
+                    }}>
+                    <Link to='/wizard/step2'>
+                        Previous Step
+                        </Link>
+                </button>
+                <button onClick={() => {
+                    updateMortgage();
+                    updateRent();
+                    this.addhouse();
+                    }}>
+                    Complete
                 </button>
             </div>
         );
     }
 }
+
+function mapStateToProps(state){
+    return {
+        propertyname: state.propertyname,
+        address: state.address,
+        city: state.city,
+        homestate: state.homestate,
+        zip: state.zip,
+        mortgage: state.mortgage,
+        rent: state.rent,
+        propertyimage: state.propertyimage
+    }
+}
+
+
+export default connect (mapStateToProps, { updateMortgage, updateRent, cancelWizard})(WizardThree);

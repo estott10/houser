@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { cancelWizard } from '../../ducks/reducer';
 
 import WizardOne from '../WizardOne/WizardOne';
 import WizardTwo from '../WizardTwo/WizardTwo';
@@ -8,14 +10,14 @@ import WizardThree from '../WizardThree/WizardThree';
 
 
 
-export default class Wizard extends Component {
+class Wizard extends Component {
 
     render() {
-
+        const { cancelWizard } = this.props;
         return (
             <div>
                 Add New Listing
-                <button>
+                <button onClick= { ()=> {cancelWizard()} } >
                     <Link to='/' >Cancel</Link>
                 </button>
                 <Switch>
@@ -28,3 +30,5 @@ export default class Wizard extends Component {
         )
     }
 }
+
+export default connect(null, { cancelWizard })(Wizard);

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { updateImage } from '../../ducks/reducer';
 
-export default class WizardTwo extends Component {
+class WizardTwo extends Component {
 
     constructor() {
         super();
@@ -10,25 +12,42 @@ export default class WizardTwo extends Component {
             propertyname: '',
             address: '',
             city: '',
-            state: '',
+            homestate: '',
             zip: '',
-            image: ''
+            propertyimage: ''
         }
         this.handleChange= this.handleChange.bind(this);
+        // this.componentDidMount= this.componentDidMount.bind(this);
     }
     handleChange(e){
         this.setState({
             [e.target.name]: e.target.value,
         })
     }
+    // componentDidMount(state){
+    //     this.setState({
+    //         propertyname: state.propertyname,
+    //         address: state.address,
+    //         city: state.city,
+    //         homestate: state.homestate,
+    //         zip: state.zip,
+    //         propertyimage: state.propertyimage 
+    //     })
+    // }
 
     render() {
+        const { updateImage } = this.props;
         return (
             <div>
                 Image URL
-                <input name='image' value= {this.state.image} onChange={this.handleChange}></input>
-                <button >
-                    <Link to='wizard/step3'>
+                <input name='propertyimage' value= {this.state.propertyimage} onChange={this.handleChange}></input>
+                <button onClick= { ()=> { updateImage()} }>
+                    <Link to='/wizard/step1'>
+                        Previous Step
+                        </Link>
+                </button>
+                <button onClick= { ()=> { updateImage()} }>
+                    <Link to='/wizard/step3'>
                         Next
                         </Link>
                 </button>
@@ -36,3 +55,12 @@ export default class WizardTwo extends Component {
         );
     }
 }
+
+function mapStateToProps(state){
+    return {
+        propertyimage: state.propertyimage
+    };
+}
+
+
+export default connect (mapStateToProps, {updateImage})(WizardTwo);

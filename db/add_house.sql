@@ -1,1 +1,1 @@
-INSERT INTO Houses (propertyname, address, city, state, zip) VALUES ($1, $2, $3, $4, $5)
+INSERT INTO Houses (propertyname, address, city, homestate, zip, propertyimage, mortgage, rent) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)

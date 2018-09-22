@@ -38,7 +38,7 @@ this.removeHouse= this.removeHouse.bind(this);
                 Dashboard
                 {houses.map( (house, i) => {
                     return <ul key={i} className= "houseList"><House 
-                    removehouse={this.removeHouse} propertyid={house.propertyid} propertyname={house.propertyname} address={house.address} city={house.city} homeState={house.state} zip={house.zip}/></ul>
+                    removehouse={this.removeHouse} propertyid={house.propertyid} propertyname={house.propertyname} address={house.address} city={house.city} homestate={house.homeState} zip={house.zip}/></ul>
                 })}
                 
             </div>
