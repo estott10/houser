@@ -19,8 +19,8 @@ function House(props) {
                </div>
             </h2>
             <h2 className="costs">
-                <p>{props.mortgage}</p>
-                <p>{props.rent}</p>
+               <p className= "mortgage">Monthly Mortgage: {props.mortgage}</p>
+               <p className= "rent">Desired Rent: {props.rent}</p>
             </h2>
             <button className="delete_x" onClick={() => { props.removehouse(props.propertyid) }} >x</button>
         </div>

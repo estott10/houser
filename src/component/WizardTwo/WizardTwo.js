@@ -14,7 +14,7 @@ class WizardTwo extends Component {
             city: '',
             homestate: '',
             zip: '',
-            propertyimage: ''
+            propertyimage: ""
         }
         this.handleChange= this.handleChange.bind(this);
         this.componentDidMount= this.componentDidMount.bind(this);
@@ -36,13 +36,15 @@ class WizardTwo extends Component {
     }
 
     render() {
+      
         const { updateImage } = this.props;
         const { propertyimage } = this.state;
+        console.log(propertyimage);
 
         return (
             <div>
                 Image URL
-                <input name='propertyimage' value= {this.state.propertyimage} onChange={this.handleChange}></input>
+                <input name='propertyimage' value= {propertyimage} onChange={this.handleChange}></input>
                 <button onClick= { ()=> { updateImage(propertyimage)} }>
                     <Link className="links" to='/wizard/step1'>
                         Previous Step

@@ -16,13 +16,13 @@ background-color: #AFD4C0;
   color: white;
 }
 
-.App-title {
+/* .App-title {
   font-size: 1.5em;
 }
 
 .App-intro {
   font-size: medium;
-}
+} */
 
 /* @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
@@ -30,11 +30,8 @@ background-color: #AFD4C0;
 } */
 
 .image{
-  height: 100%;
-  width: 100%;
-  background-size: cover;
-  background-position: 50%;
-  margin: 0;
+  height: 150px;
+  margin: 10px;
 }
 
 .address{
@@ -55,7 +52,7 @@ background-color: #AFD4C0;
 }
 
 .dashboard {
-  width: 50vw;
+  width: 60vw;
   background-color: #e5f4ec;
   /* margin: 0; */
   margin-left: 300px;
@@ -87,22 +84,29 @@ background-color: #AFD4C0;
 
 .house{
   background-color: #DEDEDE;
-  height: 300px;
-  width: 600px;
+  height: 200px;
+  width: 725px;
   padding: 20px;
   color: black;
   font-size: 12px;
   display: flex;
   flex-direction: row;
-  align-content: space-around;
+  justify-content: space-around;
+  align-items: flex-start;
 }
 
-.name, .street, .city, .state, .zip{
+.name, .street, .city, .state, .zip, .mortgage, .rent{
  display: flex;
  flex-direction: row;
  align-content: space-between;
  font-family: Open Sans,sans-serif;
+ font-weight: normal;
+ font-style: inherit;
+ font-size: 14px;
+ padding-left: 20px;
 }
+
+
 
 .cancel_button {
   padding: 10px;

@@ -17,48 +17,48 @@ class WizardOne extends Component {
             zip: ''
         }
         this.handleChange = this.handleChange.bind(this);
-        // this.componentDidMount= this.componentDidMount.bind(this);
+        this.componentDidMount= this.componentDidMount.bind(this);
     }
     handleChange(e) {
         this.setState({
             [e.target.name]: e.target.value,
         })
     }
-    // componentDidMount(){
-    //     this.setState({
-    //         propertyname: this.props.propertyname,
-    //         address: this.props.address,
-    //         city: this.props.city,
-    //         homestate: this.props.homestate,
-    //         zip: this.props.zip 
-    //     })
-    // }
+    componentDidMount(){
+        this.setState({
+            propertyname: this.props.propertyname,
+            address: this.props.address,
+            city: this.props.city,
+            homestate: this.props.homestate,
+            zip: this.props.zip 
+        })
+    }
 
 
     render() {
        const { updatePropertyName, updateAddress, updateCity, updateHomeState, updateZip } = this.props;
-       const { propertyname, address, city,homestate, zip} = this.state;
+       const { propertyname, address, city, homestate, zip} = this.state;
 
         return (
             <div className="wizard_layout">
       
                     <div>
                 Property Name
-                <input name='propertyname' value={this.state.propertyname} onChange={this.handleChange} ></input>
+                <input name='propertyname' value={propertyname} onChange={this.handleChange} ></input>
                 </div>
                 <div>
                 Address
-                <input name='address' value={this.state.address} onChange={this.handleChange} ></input>
+                <input name='address' value={address} onChange={this.handleChange} ></input>
                 </div>
                 <div>
                 City
-                <input name='city' value={this.state.city} onChange={this.handleChange} ></input>
+                <input name='city' value={city} onChange={this.handleChange} ></input>
                
                 State
-                <input name='homestate' value={this.state.homestate} onChange={this.handleChange} ></input>
+                <input name='homestate' value={homestate} onChange={this.handleChange} ></input>
               
                 Zip
-                <input name='zip' value={this.state.zip} onChange={this.handleChange} ></input>
+                <input name='zip' value={zip} onChange={this.handleChange} ></input>
                 </div>
             
                 <button onClick={() => {

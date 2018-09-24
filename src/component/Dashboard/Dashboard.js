@@ -48,7 +48,7 @@ this.removeHouse= this.removeHouse.bind(this);
             <div className="home_listings">Home Listings</div>
                 {houses.map( (house, i) => {
                     return <ul className="houselist" key={i} ><House 
-                    removehouse={this.removeHouse} propertyid={house.propertyid} propertyname={house.propertyname} address={house.address} city={house.city} homestate={house.homeState} zip={house.zip}/></ul>
+                    removehouse={this.removeHouse} propertyid={house.propertyid} propertyname={house.propertyname} address={house.address} city={house.city} homestate={house.homestate} zip={house.zip} propertyimage={house.propertyimage} mortgage={house.mortgage} rent={house.rent}/></ul>
                 })}
                 </h3>
                

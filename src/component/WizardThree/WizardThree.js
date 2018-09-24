@@ -57,8 +57,8 @@ class WizardThree extends Component {
             homestate: this.props.homestate,
             zip: this.props.zip,
             propertyimage: this.props.propertyimage,
-            mortgage: this.props.mortgage,
-            rent: this.props.rent 
+            mortgage: this.state.mortgage,
+            rent: this.state.rent 
         });
     }
 
@@ -68,9 +68,10 @@ class WizardThree extends Component {
 
         return (
             <div>
-                Monthly Mortgage
+                <h2>Recommended Rent: {this.state.mortgage * 1.25}</h2>
+                Monthly Mortgage Amount
                 <input name='mortgage' value={this.state.mortgage} onChange={this.handleChange}></input>
-                Desired Rent
+                Desired Monthly Rent
                 <input name='rent' value={this.state.rent} onChange={this.handleChange}></input>
                 <button onClick={() => {
                     updateMortgage(mortgage);
