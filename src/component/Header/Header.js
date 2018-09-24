@@ -4,7 +4,7 @@ import React from 'react';
 
 
     return(
-        <div>
+        <div className="header">
         Header
      
         </div>

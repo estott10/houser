@@ -21,19 +21,19 @@ class WizardThree extends Component {
         }
         this.addhouse= this.addhouse.bind(this);
         this.handleChange=this.handleChange.bind(this);
-        // this.componentDidMount=this.componentDidMount.bind(this);
+        this.componentDidMount=this.componentDidMount.bind(this);
     }
 
-    addhouse(state){
+    addhouse(){
         const newHouse = {
-            propertyname: state.propertyname,
-            address: state.address,
-            city: state.city,
-            homestate: state.homestate,
-            zip: parseInt(state.zip, 10),
+            propertyname: this.props.propertyname,
+            address: this.props.address,
+            city: this.props.city,
+            homestate: this.props.homestate,
+            zip: parseInt(this.props.zip, 10),
             mortgage: this.state.mortgage,
             rent: this.state.rent,
-            propertyimage: state.propertyimage
+            propertyimage: this.props.propertyimage
         }
         axios.post('/api/wizard', newHouse)
             .then(result => {
@@ -48,22 +48,24 @@ class WizardThree extends Component {
         })
     }
 
-    // componentDidMount(){
-    //    const { state }= this.props;
-    //     this.setState({
-    //         propertyname: state.propertyname,
-    //         address: state.address,
-    //         city: state.city,
-    //         homestate: state.homestate,
-    //         zip: state.zip,
-    //         propertyimage: state.propertyimage,
-    //         mortgage: state.mortgage,
-    //         rent: state.rent 
-    //     });
-    // }
+    componentDidMount(){
+
+        this.setState({
+            propertyname: this.props.propertyname,
+            address: this.props.address,
+            city: this.props.city,
+            homestate: this.props.homestate,
+            zip: this.props.zip,
+            propertyimage: this.props.propertyimage,
+            mortgage: this.props.mortgage,
+            rent: this.props.rent 
+        });
+    }
 
     render() {
         const { updateMortgage, updateRent } = this.props;
+        const { mortgage, rent} = this.state;
+
         return (
             <div>
                 Monthly Mortgage
@@ -71,16 +73,16 @@ class WizardThree extends Component {
                 Desired Rent
                 <input name='rent' value={this.state.rent} onChange={this.handleChange}></input>
                 <button onClick={() => {
-                    updateMortgage();
-                    updateRent();
+                    updateMortgage(mortgage);
+                    updateRent(rent);
                     }}>
-                    <Link to='/wizard/step2'>
+                    <Link className="links" to='/wizard/step2'>
                         Previous Step
                         </Link>
                 </button>
                 <button onClick={() => {
-                    updateMortgage();
-                    updateRent();
+                    updateMortgage(mortgage);
+                    updateRent(rent);
                     this.addhouse();
                     }}>
                     Complete

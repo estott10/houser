@@ -25,39 +25,45 @@ class WizardOne extends Component {
         })
     }
     // componentDidMount(){
-    //     const {state} = this.props;
     //     this.setState({
-    //         propertyname: state.propertyname,
-    //         address: state.address,
-    //         city: state.city,
-    //         homestate: state.homestate,
-    //         zip: state.zip 
+    //         propertyname: this.props.propertyname,
+    //         address: this.props.address,
+    //         city: this.props.city,
+    //         homestate: this.props.homestate,
+    //         zip: this.props.zip 
     //     })
     // }
 
 
     render() {
        const { updatePropertyName, updateAddress, updateCity, updateHomeState, updateZip } = this.props;
+       const { propertyname, address, city,homestate, zip} = this.state;
 
         return (
-            <div>
-                Add New Listing
-                <button>
-                    <Link to='/' >Cancel</Link>
-                </button>
+            <div className="wizard_layout">
+      
+                    <div>
                 Property Name
                 <input name='propertyname' value={this.state.propertyname} onChange={this.handleChange} ></input>
+                </div>
+                <div>
                 Address
                 <input name='address' value={this.state.address} onChange={this.handleChange} ></input>
+                </div>
+                <div>
                 City
                 <input name='city' value={this.state.city} onChange={this.handleChange} ></input>
+               
                 State
                 <input name='homestate' value={this.state.homestate} onChange={this.handleChange} ></input>
+              
                 Zip
                 <input name='zip' value={this.state.zip} onChange={this.handleChange} ></input>
+                </div>
+            
                 <button onClick={() => {
-                    updatePropertyName();
-                    updateAddress(); updateCity(); updateHomeState(); updateZip();
+                    updatePropertyName(propertyname);
+                    updateAddress(address); updateCity(city); updateHomeState(homestate); updateZip(zip);
                 }} >
                     <Link to='/wizard/step2'>
                         Next

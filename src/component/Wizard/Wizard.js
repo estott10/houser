@@ -15,11 +15,13 @@ class Wizard extends Component {
     render() {
         const { cancelWizard } = this.props;
         return (
-            <div>
-                Add New Listing
-                <button onClick= { ()=> {cancelWizard()} } >
-                    <Link to='/' >Cancel</Link>
+            <div className="dashboard" id="wizards">
+                <div className="center_dashboard" >
+                <h2>Add New Listing</h2>
+                <button className="add_property_button" id="cancel_wizard" onClick= { ()=> {cancelWizard()} } >
+                    <Link className="links" to='/' >Cancel</Link>
                 </button>
+                </div>
                 <Switch>
                     <Route component={WizardOne} path='/wizard/step1' />
                     <Route component={WizardTwo} path='/wizard/step2' />
