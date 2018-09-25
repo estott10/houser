@@ -6,8 +6,8 @@ import { updatePropertyName, updateAddress, updateCity, updateHomeState, updateZ
 
 class WizardOne extends Component {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
 
         this.state = {
             propertyname: '',
@@ -17,22 +17,22 @@ class WizardOne extends Component {
             zip: ''
         }
         this.handleChange = this.handleChange.bind(this);
-        // this.componentDidMount= this.componentDidMount.bind(this);
+        this.componentDidMount= this.componentDidMount.bind(this);
     }
     handleChange(e) {
         this.setState({
             [e.target.name]: e.target.value,
         })
     }
-    // componentDidMount(){
-    //     this.setState({
-    //         propertyname: this.props.propertyname,
-    //         address: this.props.address,
-    //         city: this.props.city,
-    //         homestate: this.props.homestate,
-    //         zip: this.props.zip 
-    //     })
-    // }
+    componentDidMount(props){
+        this.setState({
+            propertyname: this.props.propertyname,
+            address: this.props.address,
+            city: this.props.city,
+            homestate: this.props.homestate,
+            zip: this.props.zip 
+        })
+    }
 
 
     render() {
@@ -44,7 +44,7 @@ class WizardOne extends Component {
                 <form className="wizardForm">
                     <div>
                 <p>Property Name</p>
-                <input name='propertyname' value={propertyname} onChange={this.handleChange} ></input>
+                <input name='propertyname' value={propertyname} onChange={this.handleChange}></input>
                 </div>
                 <div>
                 <p>Address</p>
@@ -65,11 +65,11 @@ class WizardOne extends Component {
                 </div>
                 </div>
             </form>
-                <button onClick={() => {
+                <button className="next_button" onClick={() => {
                     updatePropertyName(propertyname);
                     updateAddress(address); updateCity(city); updateHomeState(homestate); updateZip(zip);
                 }} >
-                    <Link to='/wizard/step2'>
+                    <Link className="next_link" to='/wizard/step2'>
                         Next
                         </Link>
                 </button>
@@ -80,11 +80,11 @@ class WizardOne extends Component {
 
 function mapStateToProps(state) {
     return {
-        propertynames: state.propertyname,
-        addresss: state.address,
+        propertyname: state.propertyname,
+        address: state.address,
         city: state.city,
         homestate: state.homestate,
-        zips: state.zip
+        zip: state.zip
     };
 }
 

@@ -39,7 +39,6 @@ class WizardTwo extends Component {
       
         const { updateImage } = this.props;
         const { propertyimage } = this.state;
-        console.log(propertyimage);
 
         return (
             <div>
@@ -50,7 +49,7 @@ class WizardTwo extends Component {
                         Previous Step
                         </Link>
                 </button>
-                <button onClick= { ()=> { updateImage(propertyimage)} }>
+                <button className="next_button" onClick= { ()=> { updateImage(propertyimage)} }>
                     <Link to='/wizard/step3'>
                         Next
                         </Link>
