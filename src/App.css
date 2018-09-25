@@ -16,19 +16,6 @@ background-color: #AFD4C0;
   color: white;
 }
 
-/* .App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: medium;
-} */
-
-/* @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-} */
-
 .image{
   height: 150px;
   margin: 10px;
@@ -152,6 +139,19 @@ background-color: #AFD4C0;
   color: black;
 }
 
-.wizard_layout{
-  align-content: center;
+.wizardForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
+
+.cityStateZipForm{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: 30px;
+  font-style: inherit;
+
+}
+

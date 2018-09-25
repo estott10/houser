@@ -17,22 +17,22 @@ class WizardOne extends Component {
             zip: ''
         }
         this.handleChange = this.handleChange.bind(this);
-        this.componentDidMount= this.componentDidMount.bind(this);
+        // this.componentDidMount= this.componentDidMount.bind(this);
     }
     handleChange(e) {
         this.setState({
             [e.target.name]: e.target.value,
         })
     }
-    componentDidMount(){
-        this.setState({
-            propertyname: this.props.propertyname,
-            address: this.props.address,
-            city: this.props.city,
-            homestate: this.props.homestate,
-            zip: this.props.zip 
-        })
-    }
+    // componentDidMount(){
+    //     this.setState({
+    //         propertyname: this.props.propertyname,
+    //         address: this.props.address,
+    //         city: this.props.city,
+    //         homestate: this.props.homestate,
+    //         zip: this.props.zip 
+    //     })
+    // }
 
 
     render() {
@@ -40,27 +40,31 @@ class WizardOne extends Component {
        const { propertyname, address, city, homestate, zip} = this.state;
 
         return (
-            <div className="wizard_layout">
-      
+            <div className="wizardComponent">
+                <form className="wizardForm">
                     <div>
-                Property Name
+                <p>Property Name</p>
                 <input name='propertyname' value={propertyname} onChange={this.handleChange} ></input>
                 </div>
                 <div>
-                Address
+                <p>Address</p>
                 <input name='address' value={address} onChange={this.handleChange} ></input>
                 </div>
+                <div className="cityStateZipForm">
                 <div>
-                City
+                <p>City</p>
                 <input name='city' value={city} onChange={this.handleChange} ></input>
-               
-                State
+                </div>
+                <div>
+                <p>State</p>
                 <input name='homestate' value={homestate} onChange={this.handleChange} ></input>
-              
-                Zip
+                </div>
+                <div>
+                <p>Zip</p>
                 <input name='zip' value={zip} onChange={this.handleChange} ></input>
                 </div>
-            
+                </div>
+            </form>
                 <button onClick={() => {
                     updatePropertyName(propertyname);
                     updateAddress(address); updateCity(city); updateHomeState(homestate); updateZip(zip);
