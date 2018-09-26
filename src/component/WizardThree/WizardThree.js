@@ -74,15 +74,15 @@ class WizardThree extends Component {
                 <p>Desired Monthly Rent</p>
                 <input name='rent' value={this.state.rent} onChange={this.handleChange}></input>
                 <div className="next_previous">
-                <button className="previous_link" id="previous position" onClick={() => {
+                <button className="w2_previous_button" onClick={() => {
                     updateMortgage(mortgage);
                     updateRent(rent);
                     }}>
-                    <Link className="links" to='/wizard/step2'>
+                    <Link className="previous_link" to='/wizard/step2'>
                         Previous Step
                         </Link>
                 </button>
-                <button onClick={() => {
+                <button className="complete_button" onClick={() => {
                     updateMortgage(mortgage);
                     updateRent(rent);
                     this.addhouse();

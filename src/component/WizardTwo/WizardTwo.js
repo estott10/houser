@@ -47,16 +47,20 @@ class WizardTwo extends Component {
                 <input name='propertyimage' value= {propertyimage} onChange={this.handleChange}></input>
                 </div>
                 <div className="next_previous">
-                <button className="previous_button" id="previous position" onClick= { ()=> { updateImage(propertyimage)} }>
+                <div>
+                <button className="w2_previous_button" onClick= { ()=> { updateImage(propertyimage)} }>
                     <Link className="previous_link" to='/wizard/step1'>
                         Previous Step
                         </Link>
                 </button>
-                <button className="next_button" onClick= { ()=> { updateImage(propertyimage)} }>
+                </div>
+                <div>
+                <button className="w2_next_button" onClick= { ()=> { updateImage(propertyimage)} }>
                     <Link className="next_link" to='/wizard/step3'>
                         <p>Next Step</p>
                         </Link>
                 </button>
+                </div>
                 </div>
             </div>
         );

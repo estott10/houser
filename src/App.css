@@ -1,6 +1,10 @@
 html{
 
 background-color: #AFD4C0;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
 
 }
 
@@ -43,6 +47,7 @@ background-color: #AFD4C0;
 
 .dashboard {
   width: 50vw;
+  height: 100%;
   background-color: #e5f4ec;
   margin-left: 500px;
   padding: 0;
@@ -62,7 +67,8 @@ background-color: #AFD4C0;
 }
 
 #wizards{
-  height: 900px;
+  height: 100%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -170,7 +176,9 @@ background-color: #AFD4C0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: baseline;
+  width: 100%;
+  align-self: auto;
+  margin-top: 400px;
 }
 
 #cancel_wizard{
@@ -182,12 +190,24 @@ background-color: #AFD4C0;
   color: black;
 }
 
-.wizardComponent{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.w2_next_button, .w2_previous_button{
+  text-decoration: none;
+  height: 60px;
+  color: white;
+  background-color: #3b5249;
+  border: none;
 }
 
+.complete_button{
+  text-decoration: none;
+  height: 60px;
+  width: 120px;
+  font-size: 14px;
+  color: black;
+  background-color: #8aea92;
+  border: none;
+  margin-left: 400px;
+}
 
 .wizard_two{
   display: flex;
