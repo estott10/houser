@@ -44,8 +44,8 @@ this.removeHouse= this.removeHouse.bind(this);
         </Link>
         </button>
         </div> 
-        <h3>
-            <div className="home_listings">Home Listings</div>
+        <h3 className="house_grid">
+            <div id="home_listings">Home Listings</div>
                 {houses.map( (house, i) => {
                     return <ul className="houselist" key={i} ><House 
                     removehouse={this.removeHouse} propertyid={house.propertyid} propertyname={house.propertyname} address={house.address} city={house.city} homestate={house.homestate} zip={house.zip} propertyimage={house.propertyimage} mortgage={house.mortgage} rent={house.rent}/></ul>

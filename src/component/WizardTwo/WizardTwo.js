@@ -41,19 +41,23 @@ class WizardTwo extends Component {
         const { propertyimage } = this.state;
 
         return (
-            <div>
-                Image URL
+            <div className="wizard_two">
+                <div className="image_input_div">
+                <p>Image URL</p>
                 <input name='propertyimage' value= {propertyimage} onChange={this.handleChange}></input>
-                <button onClick= { ()=> { updateImage(propertyimage)} }>
-                    <Link className="links" to='/wizard/step1'>
+                </div>
+                <div className="next_previous">
+                <button className="previous_button" id="previous position" onClick= { ()=> { updateImage(propertyimage)} }>
+                    <Link className="previous_link" to='/wizard/step1'>
                         Previous Step
                         </Link>
                 </button>
                 <button className="next_button" onClick= { ()=> { updateImage(propertyimage)} }>
-                    <Link to='/wizard/step3'>
-                        Next
+                    <Link className="next_link" to='/wizard/step3'>
+                        <p>Next Step</p>
                         </Link>
                 </button>
+                </div>
             </div>
         );
     }

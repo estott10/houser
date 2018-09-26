@@ -41,36 +41,36 @@ class WizardOne extends Component {
 
         return (
             <div className="wizardComponent">
-                <form className="wizardForm">
+               
                     <div>
-                <p>Property Name</p>
+                <p id="propName">Property Name</p>
                 <input name='propertyname' value={propertyname} onChange={this.handleChange}></input>
                 </div>
                 <div>
-                <p>Address</p>
-                <input name='address' value={address} onChange={this.handleChange} ></input>
+                <p id="address">Address</p>
+                <input id="address_field" name='address' value={address} onChange={this.handleChange} ></input>
                 </div>
                 <div className="cityStateZipForm">
                 <div>
-                <p>City</p>
+                <p id="city">City</p>
                 <input name='city' value={city} onChange={this.handleChange} ></input>
                 </div>
                 <div>
-                <p>State</p>
+                <p id="state">State</p>
                 <input name='homestate' value={homestate} onChange={this.handleChange} ></input>
                 </div>
                 <div>
-                <p>Zip</p>
+                <p id="zip">Zip</p>
                 <input name='zip' value={zip} onChange={this.handleChange} ></input>
                 </div>
                 </div>
-            </form>
+           
                 <button className="next_button" onClick={() => {
                     updatePropertyName(propertyname);
                     updateAddress(address); updateCity(city); updateHomeState(homestate); updateZip(zip);
                 }} >
                     <Link className="next_link" to='/wizard/step2'>
-                        Next
+                        <p id= "nextText" >Next Step</p>
                         </Link>
                 </button>
             </div>

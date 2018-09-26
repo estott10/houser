@@ -1,6 +1,5 @@
 module.exports = {
 
-    // create: ,
 
 
     getHouses: (req, res, next) => {
@@ -45,7 +44,7 @@ module.exports = {
     } 
 }
 
-    // delete:
+   
 
 
 

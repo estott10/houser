@@ -67,13 +67,14 @@ class WizardThree extends Component {
         const { mortgage, rent} = this.state;
 
         return (
-            <div>
+            <div className="wizard_three">
                 <h2>Recommended Rent: {this.state.mortgage * 1.25}</h2>
-                Monthly Mortgage Amount
+                <p>Monthly Mortgage Amount</p>
                 <input name='mortgage' value={this.state.mortgage} onChange={this.handleChange}></input>
-                Desired Monthly Rent
+                <p>Desired Monthly Rent</p>
                 <input name='rent' value={this.state.rent} onChange={this.handleChange}></input>
-                <button onClick={() => {
+                <div className="next_previous">
+                <button className="previous_link" id="previous position" onClick={() => {
                     updateMortgage(mortgage);
                     updateRent(rent);
                     }}>
@@ -88,6 +89,7 @@ class WizardThree extends Component {
                     }}>
                     Complete
                 </button>
+                </div>
             </div>
         );
     }
